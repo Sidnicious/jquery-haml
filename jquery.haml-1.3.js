@@ -235,6 +235,9 @@
         var node = $(document.createElement("div"));
         node.haml(callback.apply(this, arguments));
         children = node.contents();
+        if (children.length === 0) {
+            children.push(document.createTextNode(''));
+        }
         return children;
       }
 
